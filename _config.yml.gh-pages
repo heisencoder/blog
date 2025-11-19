@@ -1,7 +1,5 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that.
+# GitHub Pages Compatible Configuration
+# For heisencoder blog
 
 # Site settings
 title: Heisencoder
@@ -27,9 +25,11 @@ author:
 
 # Build settings
 markdown: kramdown
-minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+remote_theme: mmistakes/minimal-mistakes@4.26.2
+minimal_mistakes_skin: "default"
 
-# Plugins
+# IMPORTANT: GitHub Pages only allows these plugins
+# https://pages.github.com/versions/
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -37,6 +37,9 @@ plugins:
   - jekyll-include-cache
   - jekyll-paginate
   - jekyll-gist
+
+# GitHub Pages requires this
+github: [metadata]
 
 # Site navigation
 include:
@@ -76,14 +79,17 @@ exclude:
   - CHANGELOG
   - config
   - Gemfile
+  - Gemfile.lock
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
   - log
   - node_modules
   - package.json
+  - package-lock.json
   - Rakefile
   - README
+  - README.md
   - tmp
 
 keep_files:
@@ -116,7 +122,7 @@ sass:
   style: compressed
 
 # Outputting
-timezone: America/Denver # Change to your timezone
+timezone: America/Denver
 
 # Defaults
 defaults:
@@ -128,7 +134,7 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
+      comments: false  # Set to false initially, change after Giscus setup
       share: true
       related: true
       show_date: true
@@ -141,25 +147,17 @@ defaults:
       author_profile: true
 
 # Comments - Giscus (GitHub Discussions)
-# Enable GitHub Discussions in your repository first
-# Then configure at: https://giscus.app/
-comments:
-  provider: "giscus"
-  giscus:
-    repo: "heisencoder/heisencoder.github.io"
-    repo_id: "REPLACE_WITH_YOUR_REPO_ID"
-    category: "Blog Comments"
-    category_id: "REPLACE_WITH_YOUR_CATEGORY_ID"
-    discussion_term: "pathname"
-    reactions_enabled: 1
-    theme: "light"
-
-# Analytics (optional)
-# Uncomment and configure if you want analytics
-# analytics:
-#   provider: "google-gtag"
-#   google:
-#     tracking_id: "G-XXXXXXXXXX"
+# Uncomment and configure after enabling Discussions
+# comments:
+#   provider: "giscus"
+#   giscus:
+#     repo: "heisencoder/blog"
+#     repo_id: "REPLACE_WITH_YOUR_REPO_ID"
+#     category: "Blog Comments"
+#     category_id: "REPLACE_WITH_YOUR_CATEGORY_ID"
+#     discussion_term: "pathname"
+#     reactions_enabled: 1
+#     theme: "light"
 
 # SEO
 social:
@@ -167,3 +165,10 @@ social:
   name: Matthew V Ball
   links:
     - "https://github.com/heisencoder"
+
+# Analytics (optional)
+# Uncomment and configure if you want analytics
+# analytics:
+#   provider: "google-gtag"
+#   google:
+#     tracking_id: "G-XXXXXXXXXX"
